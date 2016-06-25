@@ -1,0 +1,9 @@
+.issue_view {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url('../images/blank.png');
+}
+
+.issue_view.viewed      { background: url('../images/checked_gray.png'); }
+.issue_view.viewed_all  { background: url('../images/checked_green.png'); }

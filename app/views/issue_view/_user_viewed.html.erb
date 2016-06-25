@@ -1,0 +1,15 @@
+<%
+if issue_view.present?
+  if issue_view.created_at >= @issue.updated_on
+    issue_view_class = 'viewed_all'
+    issue_view_tooltip = t('issue_view.marker.seen_all')
+  else
+    issue_view_class = 'viewed'
+    issue_view_tooltip = t('issue_view.marker.seen_but_not_all')
+  end
+else
+  issue_view_class = ''
+  issue_view_tooltip = t('issue_view.marker.never_seen')
+end
+%>
+<span class="issue_view <%=issue_view_class%>" title="<%=issue_view_tooltip%>"></span>

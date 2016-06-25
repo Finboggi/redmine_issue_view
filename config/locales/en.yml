@@ -1,0 +1,8 @@
+en:
+  issue_view:
+    list:
+      link: 'Issue view list'
+    marker:
+      never_seen: 'Never opened this issue'
+      seen_but_not_all: 'Saw this issue, but not all changes and comments'
+      seen_all: 'Saw all changes in this issue'
