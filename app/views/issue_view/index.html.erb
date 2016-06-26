@@ -1,0 +1,18 @@
+<table id="issue_views">
+  <thead>
+  <tr>
+    <th>id</th>
+    <th>User</th>
+    <th>View Date</th>
+  </tr>
+  </thead>
+  <tbody>
+    <% @issue_views.each do |issue_view| %>
+      <tr>
+        <td><%=issue_view.id%></td>
+        <td><%=issue_view.user.name%></td>
+        <td><%=issue_view.created_at%></td>
+      </tr>
+    <% end%>
+  </tbody>
+</table>

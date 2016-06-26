@@ -1,8 +1,13 @@
+<%= stylesheet_link_tag 'issue_view', :plugin => 'issue_view' %>
+<%= javascript_include_tag 'issue_view', :plugin => 'issue_view' %>
+
 <script type="text/javascript">
   <% @issue_views.each do |user_id, issue_view| %>
   $('.issue a.user[href="/users/<%= user_id %>"]')
       .after("<%= j render 'issue_view/user_viewed', issue_view: issue_view %>");
   <% end %>
+
+  issue_view.issue_id = <%=@issue.id%>;
+  issue_view.init();
 </script>
 
-<%= stylesheet_link_tag 'issue_view', :plugin => 'issue_view' %>
