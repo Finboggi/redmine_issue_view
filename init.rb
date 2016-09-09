@@ -2,6 +2,8 @@
 # if Rails.env == "development"
 #   ActiveSupport::Dependencies.autoload_once_paths.reject!{|x| x =~ /^#{Regexp.escape(File.dirname(__FILE__))}/}
 # end
+# TODO: record only involved users (include watchers)
+# TODO: javascript async view last comment check
 
 IssuesController.send(:include, IssueViews::IssuesControllerPatch)
 
@@ -15,4 +17,5 @@ Redmine::Plugin.register :issue_view do
   version '0.0.1'
   url 'https://github.com/Finboggi/redmine_issue_view'
   author_url 'https://github.com/Finboggi'
+  settings default: { record_only_last: 'on' }, partial: 'settings/issue_view_plugin_settings'
 end

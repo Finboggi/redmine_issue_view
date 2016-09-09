@@ -1,0 +1,9 @@
+<p>
+  <label><%=t('issue_view.settings.label.record_only_last')%></label>
+  <%=check_box_tag 'settings[record_only_last]', @settings['record_only_last'], @settings['record_only_last']%>
+
+</p>
+<%= link_to(
+        t('issue_view.settings.label.wipe_multiple'),
+        issue_views_wipe_path,
+        format: :json, remote: true, method: :delete) %>

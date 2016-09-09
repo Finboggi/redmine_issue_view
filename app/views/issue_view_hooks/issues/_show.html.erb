@@ -2,10 +2,13 @@
 <%= javascript_include_tag 'issue_view', :plugin => 'issue_view' %>
 
 <script type="text/javascript">
-  <% @issue_views.each do |user_id, issue_view| %>
-  $('.issue a.user[href="/users/<%= user_id %>"]')
-      .after("<%= j render 'issue_view/user_viewed', issue_view: issue_view %>");
+  <%- if @issue_views.present? %>
+    <% @issue_views.each do |user_id, issue_view| %>
+    $('.issue a.user[href="/users/<%= user_id %>"]')
+        .after("<%= j render 'issue_view/user_viewed', issue_view: issue_view %>");
+    <% end %>
   <% end %>
+
 
   issue_view.issue_id = <%=@issue.id%>;
   issue_view.init();

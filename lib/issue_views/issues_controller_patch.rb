@@ -11,7 +11,11 @@ module IssueViews
         private
 
         def save_issue_view
-          IssueView.create({issue: @issue, user: User.current})
+          if Setting.plugin_issue_view.is_a?(Hash) && Setting.plugin_issue_view.key?(:record_only_last)
+            IssueView.find_or_create_by!(issue: @issue, user: User.current).touch
+          else
+            IssueView.create(issue: @issue, user: User.current)
+          end
         end
 
         def retrieve_involved_users_view
