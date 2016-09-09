@@ -2,8 +2,9 @@
     display: inline-block;
     width: 16px;
     height: 16px;
-    background: url('../images/blank.png');
+    cursor: default;
 }
 
-.issue_view.viewed      { background: url('../images/checked_gray.png'); }
-.issue_view.viewed_all  { background: url('../images/checked_green.png'); }
+.issue_view.viewed      { color: #F1C232; }
+.issue_view.viewed_all  { color: #6AA84F; }
+.issue_view.not_viewed  { color: #E69138; }

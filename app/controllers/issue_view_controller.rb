@@ -1,5 +1,5 @@
 class IssueViewController < ApplicationController
-  before_action :find_issue
+  before_action :find_issue, only: [:index]
   unloadable
 
   def index
@@ -8,6 +8,12 @@ class IssueViewController < ApplicationController
       format.html { render layout: !request.xhr? }
       format.json { render json: { issue_views: @issue_views } }
     end
+  end
+
+  def wipe
+    IssueView.wipe_all_multiple! if User.current.admin?
+
+    render_api_ok
   end
 
   private

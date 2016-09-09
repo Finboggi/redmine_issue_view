@@ -6,3 +6,7 @@ en:
       never_seen: 'Never opened this issue'
       seen_but_not_all: 'Saw this issue, but not all changes and comments'
       seen_all: 'Saw all changes in this issue'
+    settings:
+      label:
+        record_only_last: 'Record only last view (not all of them)'
+        wipe_multiple: 'Delete all records but the last one for each pair issue-user'
