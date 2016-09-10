@@ -1,8 +1,27 @@
 <p>
   <label><%=t('issue_view.settings.label.record_only_last')%></label>
   <%=check_box_tag 'settings[record_only_last]', @settings['record_only_last'], @settings['record_only_last']%>
-
 </p>
+
+<hr />
+<h3>Recorded user types</h3>
+<div>
+  <b>all</b>: saves record for every user include anonymous<br />
+  <b>base</b>: saves record only for author and assignee<br />
+  <b>plus_watchers</b>: saves record for author, assignee and all_watchers<br />
+</div>
+
+<p>
+  <%-
+    user_types = %w(all base plus_watchers)
+    user_types.each do |user_type| %>
+      <%= label_tag 'settings_user_type_' + user_type, user_type %>
+      <%= radio_button_tag 'settings[user_type]', user_type, @settings.is_a?(Hash) && @settings['user_type'] == user_type %>
+      <br />
+  <%-
+    end %>
+</p>
+<hr />
 <%= link_to(
         t('issue_view.settings.label.wipe_multiple'),
         issue_views_wipe_path,
